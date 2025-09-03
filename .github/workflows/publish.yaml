@@ -26,6 +26,6 @@ jobs:
         run: npm version ${{ steps.version.outputs.VERSION }} --no-git-tag-version
 
       - name: Publish to npm
-        run: npm publish --tag ${{ github.ref_name }} 
+        run: npm publish --tag dev # this is hardcoded. I did not find an easy way to get the branch
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
