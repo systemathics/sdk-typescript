@@ -26,6 +26,6 @@ jobs:
         run: npm version ${{ steps.version.outputs.VERSION }} --no-git-tag-version
 
       - name: Publish to npm
-        run: npm publish
+        run: npm publish --tag ${{ steps.version.outputs.VERSION }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
