@@ -11,6 +11,9 @@
   "bugs": {
     "url": "https://github.com/systemathics/sdk-typescript/issues"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "keywords": ["systemathics", "ganymede"],
   "homepage": "https://github.com/systemathics/sdk-typescript#readme"
 }
