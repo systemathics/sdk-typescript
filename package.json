@@ -1,0 +1,19 @@
+{
+  "name": "@systemathics/ganymede-apis",
+  "version": "1.0.0",
+  "description": "Systemathics Ganymede API",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/systemathics/sdk-typescript.git"
+  },
+  "author": "Systemathics Team",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/systemathics/sdk-typescript/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": ["systemathics", "ganymede"],
+  "homepage": "https://github.com/systemathics/sdk-typescript#readme"
+}
