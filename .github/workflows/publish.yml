@@ -15,6 +15,36 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v5
+        with:
+          fetch-depth: 0  # Récupère tout l'historique pour détecter la branche
+      
+      - name: Get branch and determine npm tag
+        id: config
+        run: |
+          BRANCH=$(git branch -r --contains ${{ github.ref }} | grep -v HEAD | sed 's/.*origin\///' | head -n1 | xargs)
+          echo "BRANCH=$BRANCH" >> $GITHUB_OUTPUT
+          echo "Detected branch: $BRANCH"
+          
+          # Mapping des branches vers les tags npm
+          case "$BRANCH" in
+            main|master)
+              NPM_TAG="latest"
+              ;;
+            quantum-prod)
+              NPM_TAG="quantum"
+              ;;
+            dev)
+              NPM_TAG="dev"
+              ;;
+            *)
+              # Pour toutes les autres branches, normalise le nom
+              # Remplace les caractères spéciaux par des tirets et met en minuscules
+              NPM_TAG=$(echo "$BRANCH" | sed 's/[^a-zA-Z0-9]/-/g' | tr '[:upper:]' '[:lower:]')
+              ;;
+          esac
+          
+          echo "NPM_TAG=$NPM_TAG" >> $GITHUB_OUTPUT
+          echo "Will publish with npm tag: $NPM_TAG" 
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -30,4 +60,4 @@ jobs:
         run: npm version ${{ steps.version.outputs.VERSION }} --no-git-tag-version
   
       - name: Publish to npm
-        run: npm publish --access public
+        run: npm publish --access public --tag ${{ steps.config.outputs.NPM_TAG }}
