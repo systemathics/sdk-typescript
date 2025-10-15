@@ -29,5 +29,5 @@ jobs:
       - name: Update package.json version
         run: npm version ${{ steps.version.outputs.VERSION }} --no-git-tag-version
 
-      - name: Publish to npm
-        run: npm publish --tag ${{ steps.version.outputs.VERSION }}
+      - name: Validate package
+        run: npm publish --dry-run
