@@ -3,8 +3,12 @@ name: Publish Package
 on:
   push:
     tags:
-      - 'v*'  # Triggers on tags like v1.2.3, v2.0.0, etc.
+      - '0.0.1'
 
+permissions:
+  id-token: write  # Required for OIDC
+  contents: read
+  
 jobs:
   publish:
     runs-on: ubuntu-latest
@@ -20,12 +24,10 @@ jobs:
 
       - name: Get version from tag
         id: version
-        run: echo "VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
+        run: echo "VERSION=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
 
       - name: Update package.json version
         run: npm version ${{ steps.version.outputs.VERSION }} --no-git-tag-version
 
       - name: Publish to npm
         run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
