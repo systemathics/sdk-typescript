@@ -30,6 +30,10 @@ import type { Identifier } from "../../../type/shared/v1/identifier_pb";
 import type { Constraints } from "../../../type/shared/v1/constraints_pb";
 import type { Date } from "../../../../../google/type/date_pb";
 import type { AssetType } from "../../../type/shared/v1/asset_pb";
+import type { DateInterval } from "../../../type/shared/v1/date_interval_pb";
+import type { DateFilter, DoubleFilter } from "../../../type/shared/v1/filter_pb";
+import type { OptionType } from "../../../type/shared/v1/option_type_pb";
+import type { StrikeType } from "../../../type/shared/v1/strike_type_pb";
 import type { EmptySchema } from "@bufbuild/protobuf/wkt";
 
 /**
@@ -194,6 +198,13 @@ export declare type DailyStreamFields = Message<"systemathics.apis.services.dail
    * @generated from field: repeated string fields = 1;
    */
   fields: string[];
+
+  /**
+   * The instrument identifier.
+   *
+   * @generated from field: systemathics.apis.type.shared.v1.Identifier identifier = 2;
+   */
+  identifier?: Identifier;
 };
 
 /**
@@ -370,6 +381,121 @@ export declare type DailyFieldsItemResponse = Message<"systemathics.apis.service
 export declare const DailyFieldsItemResponseSchema: GenMessage<DailyFieldsItemResponse>;
 
 /**
+ * @generated from message systemathics.apis.services.daily.v2.DailyOptionUnderlierRequest
+ */
+export declare type DailyOptionUnderlierRequest = Message<"systemathics.apis.services.daily.v2.DailyOptionUnderlierRequest"> & {
+  /**
+   * @generated from field: systemathics.apis.type.shared.v1.Identifier identifier = 1;
+   */
+  identifier?: Identifier;
+
+  /**
+   * @generated from field: systemathics.apis.type.shared.v1.DateInterval date_interval = 2;
+   */
+  dateInterval?: DateInterval;
+
+  /**
+   * @generated from field: systemathics.apis.type.shared.v1.DateFilter maturity_date = 3;
+   */
+  maturityDate?: DateFilter;
+
+  /**
+   * @generated from field: systemathics.apis.type.shared.v1.DoubleFilter strike_interval = 4;
+   */
+  strikeInterval?: DoubleFilter;
+
+  /**
+   * @generated from field: systemathics.apis.type.shared.v1.OptionType option_type = 5;
+   */
+  optionType: OptionType;
+
+  /**
+   * @generated from field: systemathics.apis.type.shared.v1.StrikeType strike_type = 6;
+   */
+  strikeType: StrikeType;
+
+  /**
+   * @generated from field: repeated string double_fields = 7;
+   */
+  doubleFields: string[];
+};
+
+/**
+ * Describes the message systemathics.apis.services.daily.v2.DailyOptionUnderlierRequest.
+ * Use `create(DailyOptionUnderlierRequestSchema)` to create a new message.
+ */
+export declare const DailyOptionUnderlierRequestSchema: GenMessage<DailyOptionUnderlierRequest>;
+
+/**
+ * @generated from message systemathics.apis.services.daily.v2.DailyUnderlierOptionStream
+ */
+export declare type DailyUnderlierOptionStream = Message<"systemathics.apis.services.daily.v2.DailyUnderlierOptionStream"> & {
+  /**
+   * @generated from oneof systemathics.apis.services.daily.v2.DailyUnderlierOptionStream.payload
+   */
+  payload: {
+    /**
+     * @generated from field: systemathics.apis.services.daily.v2.DailyStreamFields info = 1;
+     */
+    value: DailyStreamFields;
+    case: "info";
+  } | {
+    /**
+     * @generated from field: systemathics.apis.services.daily.v2.DailyUnderlierOptionStreamItem double_data = 2;
+     */
+    value: DailyUnderlierOptionStreamItem;
+    case: "doubleData";
+  } | { case: undefined; value?: undefined };
+};
+
+/**
+ * Describes the message systemathics.apis.services.daily.v2.DailyUnderlierOptionStream.
+ * Use `create(DailyUnderlierOptionStreamSchema)` to create a new message.
+ */
+export declare const DailyUnderlierOptionStreamSchema: GenMessage<DailyUnderlierOptionStream>;
+
+/**
+ * @generated from message systemathics.apis.services.daily.v2.DailyUnderlierOptionStreamItem
+ */
+export declare type DailyUnderlierOptionStreamItem = Message<"systemathics.apis.services.daily.v2.DailyUnderlierOptionStreamItem"> & {
+  /**
+   * @generated from field: google.type.Date date = 1;
+   */
+  date?: Date;
+
+  /**
+   * @generated from field: google.type.Date maturity_date = 2;
+   */
+  maturityDate?: Date;
+
+  /**
+   * @generated from field: double strike = 3;
+   */
+  strike: number;
+
+  /**
+   * @generated from field: systemathics.apis.type.shared.v1.OptionType option_type = 4;
+   */
+  optionType: OptionType;
+
+  /**
+   * @generated from field: systemathics.apis.type.shared.v1.StrikeType strike_type = 5;
+   */
+  strikeType: StrikeType;
+
+  /**
+   * @generated from field: repeated double data = 6;
+   */
+  data: number[];
+};
+
+/**
+ * Describes the message systemathics.apis.services.daily.v2.DailyUnderlierOptionStreamItem.
+ * Use `create(DailyUnderlierOptionStreamItemSchema)` to create a new message.
+ */
+export declare const DailyUnderlierOptionStreamItemSchema: GenMessage<DailyUnderlierOptionStreamItem>;
+
+/**
  * Called to request daily prices data. 
  *
  * @generated from service systemathics.apis.services.daily.v2.DailyService
@@ -404,6 +530,14 @@ export declare const DailyService: GenService<{
     methodKind: "server_streaming";
     input: typeof DailyVectorKeyRequestSchema;
     output: typeof DailyVectorStreamResponseSchema;
+  },
+  /**
+   * @generated from rpc systemathics.apis.services.daily.v2.DailyService.DailyOptionUnderlierStream
+   */
+  dailyOptionUnderlierStream: {
+    methodKind: "server_streaming";
+    input: typeof DailyOptionUnderlierRequestSchema;
+    output: typeof DailyUnderlierOptionStreamSchema;
   },
   /**
    * Gets all available fields by asset and provider.

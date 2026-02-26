@@ -30,7 +30,7 @@ import { enumDesc, fileDesc, tsEnum } from "@bufbuild/protobuf/codegenv2";
  * Describes the file systemathics/apis/type/shared/v1/option_type.proto.
  */
 export const file_systemathics_apis_type_shared_v1_option_type = /*@__PURE__*/
-  fileDesc("CjJzeXN0ZW1hdGhpY3MvYXBpcy90eXBlL3NoYXJlZC92MS9vcHRpb25fdHlwZS5wcm90bxIgc3lzdGVtYXRoaWNzLmFwaXMudHlwZS5zaGFyZWQudjEqVAoKT3B0aW9uVHlwZRIbChdPUFRJT05fVFlQRV9VTlNQRUNJRklFRBAAEhQKEE9QVElPTl9UWVBFX0NBTEwQARITCg9PUFRJT05fVFlQRV9QVVQQAmIGcHJvdG8z");
+  fileDesc("CjJzeXN0ZW1hdGhpY3MvYXBpcy90eXBlL3NoYXJlZC92MS9vcHRpb25fdHlwZS5wcm90bxIgc3lzdGVtYXRoaWNzLmFwaXMudHlwZS5zaGFyZWQudjEqfgoKT3B0aW9uVHlwZRIbChdPUFRJT05fVFlQRV9VTlNQRUNJRklFRBAAEhQKEE9QVElPTl9UWVBFX0NBTEwQARITCg9PUFRJT05fVFlQRV9QVVQQAhITCg9PUFRJT05fVFlQRV9QQVkQAxITCg9PUFRJT05fVFlQRV9SRUMQBGIGcHJvdG8z");
 
 /**
  * Describes the enum systemathics.apis.type.shared.v1.OptionType.
