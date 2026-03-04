@@ -381,9 +381,9 @@ export declare type DailyFieldsItemResponse = Message<"systemathics.apis.service
 export declare const DailyFieldsItemResponseSchema: GenMessage<DailyFieldsItemResponse>;
 
 /**
- * @generated from message systemathics.apis.services.daily.v2.DailyOptionUnderlierRequest
+ * @generated from message systemathics.apis.services.daily.v2.DailyOptionUnderlierWithStrikeTypeRequest
  */
-export declare type DailyOptionUnderlierRequest = Message<"systemathics.apis.services.daily.v2.DailyOptionUnderlierRequest"> & {
+export declare type DailyOptionUnderlierWithStrikeTypeRequest = Message<"systemathics.apis.services.daily.v2.DailyOptionUnderlierWithStrikeTypeRequest"> & {
   /**
    * @generated from field: systemathics.apis.type.shared.v1.Identifier identifier = 1;
    */
@@ -421,17 +421,17 @@ export declare type DailyOptionUnderlierRequest = Message<"systemathics.apis.ser
 };
 
 /**
- * Describes the message systemathics.apis.services.daily.v2.DailyOptionUnderlierRequest.
- * Use `create(DailyOptionUnderlierRequestSchema)` to create a new message.
+ * Describes the message systemathics.apis.services.daily.v2.DailyOptionUnderlierWithStrikeTypeRequest.
+ * Use `create(DailyOptionUnderlierWithStrikeTypeRequestSchema)` to create a new message.
  */
-export declare const DailyOptionUnderlierRequestSchema: GenMessage<DailyOptionUnderlierRequest>;
+export declare const DailyOptionUnderlierWithStrikeTypeRequestSchema: GenMessage<DailyOptionUnderlierWithStrikeTypeRequest>;
 
 /**
- * @generated from message systemathics.apis.services.daily.v2.DailyUnderlierOptionStream
+ * @generated from message systemathics.apis.services.daily.v2.DailyUnderlierOptionWithStrikeTypeStream
  */
-export declare type DailyUnderlierOptionStream = Message<"systemathics.apis.services.daily.v2.DailyUnderlierOptionStream"> & {
+export declare type DailyUnderlierOptionWithStrikeTypeStream = Message<"systemathics.apis.services.daily.v2.DailyUnderlierOptionWithStrikeTypeStream"> & {
   /**
-   * @generated from oneof systemathics.apis.services.daily.v2.DailyUnderlierOptionStream.payload
+   * @generated from oneof systemathics.apis.services.daily.v2.DailyUnderlierOptionWithStrikeTypeStream.payload
    */
   payload: {
     /**
@@ -441,23 +441,23 @@ export declare type DailyUnderlierOptionStream = Message<"systemathics.apis.serv
     case: "info";
   } | {
     /**
-     * @generated from field: systemathics.apis.services.daily.v2.DailyUnderlierOptionStreamItem double_data = 2;
+     * @generated from field: systemathics.apis.services.daily.v2.DailyUnderlierOptionWithStrikeTypeStreamItem double_data = 2;
      */
-    value: DailyUnderlierOptionStreamItem;
+    value: DailyUnderlierOptionWithStrikeTypeStreamItem;
     case: "doubleData";
   } | { case: undefined; value?: undefined };
 };
 
 /**
- * Describes the message systemathics.apis.services.daily.v2.DailyUnderlierOptionStream.
- * Use `create(DailyUnderlierOptionStreamSchema)` to create a new message.
+ * Describes the message systemathics.apis.services.daily.v2.DailyUnderlierOptionWithStrikeTypeStream.
+ * Use `create(DailyUnderlierOptionWithStrikeTypeStreamSchema)` to create a new message.
  */
-export declare const DailyUnderlierOptionStreamSchema: GenMessage<DailyUnderlierOptionStream>;
+export declare const DailyUnderlierOptionWithStrikeTypeStreamSchema: GenMessage<DailyUnderlierOptionWithStrikeTypeStream>;
 
 /**
- * @generated from message systemathics.apis.services.daily.v2.DailyUnderlierOptionStreamItem
+ * @generated from message systemathics.apis.services.daily.v2.DailyUnderlierOptionWithStrikeTypeStreamItem
  */
-export declare type DailyUnderlierOptionStreamItem = Message<"systemathics.apis.services.daily.v2.DailyUnderlierOptionStreamItem"> & {
+export declare type DailyUnderlierOptionWithStrikeTypeStreamItem = Message<"systemathics.apis.services.daily.v2.DailyUnderlierOptionWithStrikeTypeStreamItem"> & {
   /**
    * @generated from field: google.type.Date date = 1;
    */
@@ -490,10 +490,10 @@ export declare type DailyUnderlierOptionStreamItem = Message<"systemathics.apis.
 };
 
 /**
- * Describes the message systemathics.apis.services.daily.v2.DailyUnderlierOptionStreamItem.
- * Use `create(DailyUnderlierOptionStreamItemSchema)` to create a new message.
+ * Describes the message systemathics.apis.services.daily.v2.DailyUnderlierOptionWithStrikeTypeStreamItem.
+ * Use `create(DailyUnderlierOptionWithStrikeTypeStreamItemSchema)` to create a new message.
  */
-export declare const DailyUnderlierOptionStreamItemSchema: GenMessage<DailyUnderlierOptionStreamItem>;
+export declare const DailyUnderlierOptionWithStrikeTypeStreamItemSchema: GenMessage<DailyUnderlierOptionWithStrikeTypeStreamItem>;
 
 /**
  * Called to request daily prices data. 
@@ -532,12 +532,12 @@ export declare const DailyService: GenService<{
     output: typeof DailyVectorStreamResponseSchema;
   },
   /**
-   * @generated from rpc systemathics.apis.services.daily.v2.DailyService.DailyOptionUnderlierStream
+   * @generated from rpc systemathics.apis.services.daily.v2.DailyService.DailyOptionUnderlierWithStrikeTypeStream
    */
-  dailyOptionUnderlierStream: {
+  dailyOptionUnderlierWithStrikeTypeStream: {
     methodKind: "server_streaming";
-    input: typeof DailyOptionUnderlierRequestSchema;
-    output: typeof DailyUnderlierOptionStreamSchema;
+    input: typeof DailyOptionUnderlierWithStrikeTypeRequestSchema;
+    output: typeof DailyUnderlierOptionWithStrikeTypeStreamSchema;
   },
   /**
    * Gets all available fields by asset and provider.

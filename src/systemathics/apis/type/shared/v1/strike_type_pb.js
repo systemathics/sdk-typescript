@@ -30,7 +30,7 @@ import { enumDesc, fileDesc, tsEnum } from "@bufbuild/protobuf/codegenv2";
  * Describes the file systemathics/apis/type/shared/v1/strike_type.proto.
  */
 export const file_systemathics_apis_type_shared_v1_strike_type = /*@__PURE__*/
-  fileDesc("CjJzeXN0ZW1hdGhpY3MvYXBpcy90eXBlL3NoYXJlZC92MS9zdHJpa2VfdHlwZS5wcm90bxIgc3lzdGVtYXRoaWNzLmFwaXMudHlwZS5zaGFyZWQudjEqWgoKU3RyaWtlVHlwZRIbChdTVFJJS0VfVFlQRV9VTlNQRUNJRklFRBAAEhUKEVNUUklLRV9UWVBFX0ZJWEVEEAESGAoUU1RSSUtFX1RZUEVfRkxPQVRJTkcQAmIGcHJvdG8z");
+  fileDesc("CjJzeXN0ZW1hdGhpY3MvYXBpcy90eXBlL3NoYXJlZC92MS9zdHJpa2VfdHlwZS5wcm90bxIgc3lzdGVtYXRoaWNzLmFwaXMudHlwZS5zaGFyZWQudjEqfQoKU3RyaWtlVHlwZRIbChdTVFJJS0VfVFlQRV9VTlNQRUNJRklFRBAAEhUKEVNUUklLRV9UWVBFX0ZJWEVEEAESHgoaU1RSSUtFX1RZUEVfRkxPQVRJTkdfREVMVEEQAhIbChdTVFJJS0VfVFlQRV9GTE9BVElOR19CUBADYgZwcm90bzM");
 
 /**
  * Describes the enum systemathics.apis.type.shared.v1.StrikeType.

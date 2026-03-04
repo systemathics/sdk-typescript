@@ -52,11 +52,18 @@ export enum StrikeType {
   FIXED = 1,
 
   /**
-   * Floating strike
+   * Floating strike by delta
    *
-   * @generated from enum value: STRIKE_TYPE_FLOATING = 2;
+   * @generated from enum value: STRIKE_TYPE_FLOATING_DELTA = 2;
    */
-  FLOATING = 2,
+  FLOATING_DELTA = 2,
+
+  /**
+   * Floating strike by bp
+   *
+   * @generated from enum value: STRIKE_TYPE_FLOATING_BP = 3;
+   */
+  FLOATING_BP = 3,
 }
 
 /**
