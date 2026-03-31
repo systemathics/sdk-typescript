@@ -29,6 +29,7 @@ import type { Message } from "@bufbuild/protobuf";
 import type { Identifier } from "../../../type/shared/v1/identifier_pb";
 import type { Sampling } from "../../../type/shared/v1/sampling_pb";
 import type { DateInterval } from "../../../type/shared/v1/date_interval_pb";
+import type { TimeInterval } from "../../../type/shared/v1/time_interval_pb";
 import type { Timestamp } from "@bufbuild/protobuf/wkt";
 
 /**
@@ -71,6 +72,14 @@ export declare type IntradayBestLimitsRequest = Message<"systemathics.apis.servi
    * @generated from field: bool adjustment = 4;
    */
   adjustment: boolean;
+
+  /**
+   * [Optional] The time constraints used to define the look-back period.
+   * If missing, then all the available data is retrieved.
+   *
+   * @generated from field: systemathics.apis.type.shared.v1.TimeInterval time_interval = 5;
+   */
+  timeInterval?: TimeInterval;
 };
 
 /**
